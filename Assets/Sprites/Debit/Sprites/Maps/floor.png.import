@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c32y1q2giji5r"
-path="res://.godot/imported/wooden-wall.png-f76aec59881321605114d1f4e20468f4.ctex"
+uid="uid://bgba7cabyf74u"
+path="res://.godot/imported/floor.png-01ff46241d091cbb8bd019936be54bf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Debit/Sprites/Maps/wooden-wall.png"
-dest_files=["res://.godot/imported/wooden-wall.png-f76aec59881321605114d1f4e20468f4.ctex"]
+source_file="res://Assets/Sprites/Debit/Sprites/Maps/floor.png"
+dest_files=["res://.godot/imported/floor.png-01ff46241d091cbb8bd019936be54bf8.ctex"]
 
 [params]
 

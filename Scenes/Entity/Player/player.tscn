@@ -99,9 +99,11 @@ texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_iaii1")
 animation = &"Content-default"
 autoplay = "Content-default"
-frame_progress = 0.78927
+frame = 3
+frame_progress = 0.575217
 speed_scale = 2.0
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_wjfq1")
