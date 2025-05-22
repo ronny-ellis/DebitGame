@@ -14,6 +14,16 @@ config/name="DebitGame"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "purple",
+"res://Assets/Sprites/Player/Actions/Colere/": "red",
+"res://Assets/Sprites/Player/Actions/Content/": "green",
+"res://Scenes/": "red",
+"res://Scenes/Prototype/": "gray"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
