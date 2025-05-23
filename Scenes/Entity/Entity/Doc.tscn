@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cikd68ww2ohng"]
+
+[ext_resource type="Texture2D" uid="uid://pw8wx4ekyv4y" path="res://Assets/Sprites/Debit/Entity/Doc1.png" id="1_e8bvm"]
+[ext_resource type="Texture2D" uid="uid://iycwpfjtg7tu" path="res://Assets/Sprites/Debit/Entity/Doc2.png" id="2_33l0g"]
+[ext_resource type="Texture2D" uid="uid://cw7mguqivya84" path="res://Assets/Sprites/Debit/Entity/Doc3.png" id="3_3bygq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epjfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e8bvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_33l0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3bygq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Doc" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_epjfg")
+autoplay = "default"
+speed_scale = 0.5

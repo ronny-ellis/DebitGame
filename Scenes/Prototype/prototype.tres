@@ -1,6 +1,7 @@
 [gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://b8444ydfjaa5u"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_jfbfh"]
+output_port_for_preview = 0
 constant = Color(0.401968, 0.401968, 0.401968, 1)
 
 [resource]
@@ -21,7 +22,7 @@ void vertex() {
 
 }
 "
-graph_offset = Vector2(-11.3083, -3.24537)
+graph_offset = Vector2(187.957, 16.9127)
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(400, 160)
