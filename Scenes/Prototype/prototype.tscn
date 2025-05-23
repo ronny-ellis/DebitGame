@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://jap8h1yvsttk"]
+[gd_scene load_steps=20 format=4 uid="uid://jap8h1yvsttk"]
 
 [ext_resource type="PackedScene" uid="uid://dxscj6i0xb2y2" path="res://Scenes/Entity/Maps/wall.tscn" id="1_ymsoi"]
 [ext_resource type="PackedScene" uid="uid://tys1v21mapgj" path="res://Scenes/Entity/Maps/floors.tscn" id="2_1e3gs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://ie1ksgfthj3q" path="res://Scenes/Prototype/Shades.tres" id="5_tcv2a"]
 [ext_resource type="Texture2D" uid="uid://bl30r4nnma1th" path="res://Assets/Sprites/Debit/Items/Land-furnitures/Tapis.png" id="7_ax6of"]
 [ext_resource type="PackedScene" uid="uid://cikd68ww2ohng" path="res://Scenes/Entity/Entity/Doc.tscn" id="7_p1gw4"]
+[ext_resource type="AudioStream" uid="uid://c2mc8bjtvn0h8" path="res://Assets/Sounds/Small City Lights.mp3" id="10_dbpph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee7cb"]
 bg_color = Color(0.0666667, 0.192157, 0.380392, 1)
@@ -131,3 +132,9 @@ shape = SubResource("RectangleShape2D_lo36x")
 z_index = 5
 position = Vector2(404, 595)
 shape = SubResource("RectangleShape2D_lo36x")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_dbpph")
+volume_db = -20.0
+autoplay = true
+attenuation = 3.03143

@@ -16,11 +16,19 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.135909, 0.676102, 0.858895, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=600
 window/size/initial_position_type=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 
@@ -29,7 +37,8 @@ folder_colors={
 "res://Assets/Sprites/Player/Actions/Colere/": "red",
 "res://Assets/Sprites/Player/Actions/Content/": "green",
 "res://Scenes/": "red",
-"res://Scenes/Prototype/": "gray"
+"res://Scenes/Prototype/": "gray",
+"res://addons/": "red"
 }
 
 [input]
@@ -54,6 +63,10 @@ down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Util/Dialogues/docs_dialogues.dialogue")
 
 [rendering]
 

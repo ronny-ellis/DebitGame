@@ -1,0 +1,23 @@
+~ start
+Doc: [wave]Debit[/wave][wait=1] Debout, my little robot!
+Doc: I need you for a very important mission.
+Debit: Start-up in progress.[wait=0.2].[wait=0.2].[wait=2] *beep*
+- Salutions
+	Debit: Hello, Creator Debit at your service.
+	Doc: HA HA! Finally!
+	=> Resume_Mission
+- Bip..?
+	Debit: ...Bop?
+	Doc: Oh [wait=0.2] right.. you just started
+	=> question
+=> END
+
+~ Resume_Mission
+Doc: Your mission Debit is to save the world from the Aliens known as the Nasi. They want to ruin everything. But you, you're going to stop them!
+Doc: *Taking something*[wait=0.5]
+Doc: I've made you a weapon with the remaining parts
+=> END
+
+~ question
+Doc: Okay nothing
+=> END
