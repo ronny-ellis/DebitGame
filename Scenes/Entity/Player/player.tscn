@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b87odylsyuhku"]
+[gd_scene load_steps=20 format=3 uid="uid://b87odylsyuhku"]
 
 [ext_resource type="Texture2D" uid="uid://ch536trrsu803" path="res://Assets/Sprites/Player/Actions/Content/Debits1.png" id="1_10twy"]
 [ext_resource type="Texture2D" uid="uid://wg651m63us3r" path="res://Assets/Sprites/Player/Actions/Content/Debits-Running1.png" id="1_iaii1"]
 [ext_resource type="Texture2D" uid="uid://bc4n76wa5sssu" path="res://Assets/Sprites/Player/Actions/Colere/Debits1.png" id="1_wjfq1"]
+[ext_resource type="Script" uid="uid://c0m8dqkglc2rv" path="res://Scenes/Entity/Player/player.gd" id="1_yrgus"]
 [ext_resource type="Texture2D" uid="uid://cnp8cr8er2wcm" path="res://Assets/Sprites/Player/Actions/Content/Debits-Running2.png" id="2_2du46"]
 [ext_resource type="Texture2D" uid="uid://be3nmdrcwrxqg" path="res://Assets/Sprites/Player/Actions/Content/Debits2.png" id="2_m6mwm"]
 [ext_resource type="Texture2D" uid="uid://dgrj4s37g8xc0" path="res://Assets/Sprites/Player/Actions/Colere/Debits2.png" id="2_yrgus"]
@@ -88,12 +89,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjfq1"]
-radius = 7.25
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrgus"]
+size = Vector2(20, 5)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_yrgus")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
@@ -105,6 +108,7 @@ frame_progress = 0.575217
 speed_scale = 2.0
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(1, 4)
-shape = SubResource("CapsuleShape2D_wjfq1")
+light_mask = 5
+visibility_layer = 5
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_yrgus")
