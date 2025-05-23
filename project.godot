@@ -13,6 +13,7 @@ config_version=5
 config/name="DebitGame"
 run/main_scene="uid://jap8h1yvsttk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.135909, 0.676102, 0.858895, 1)
 config/icon="res://icon.svg"
 
 [file_customization]

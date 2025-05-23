@@ -93,6 +93,7 @@ radius = 7.25
 height = 22.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
