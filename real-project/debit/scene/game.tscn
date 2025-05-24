@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://0xumjdenkcos"]
+
+[ext_resource type="PackedScene" uid="uid://b0fk68o7nps7g" path="res://scene/player.tscn" id="1_5kiuu"]
+[ext_resource type="PackedScene" uid="uid://dfopwl34ew4d7" path="res://scene/alienship.tscn" id="2_dbls1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5kiuu"]
+distance = -67.0
+
+[node name="Game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_5kiuu")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+
+[node name="decor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="decor"]
+position = Vector2(-16, -9)
+rotation = -0.00751866
+shape = SubResource("WorldBoundaryShape2D_5kiuu")
+
+[node name="alienship" parent="." instance=ExtResource("2_dbls1")]
+position = Vector2(127, -93)
