@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://jap8h1yvsttk"]
+[gd_scene load_steps=24 format=4 uid="uid://jap8h1yvsttk"]
 
+[ext_resource type="Script" uid="uid://cwa6o6vbyw5am" path="res://Scenes/Prototype/prototype.gd" id="1_lo36x"]
 [ext_resource type="PackedScene" uid="uid://dxscj6i0xb2y2" path="res://Scenes/Entity/Maps/wall.tscn" id="1_ymsoi"]
 [ext_resource type="PackedScene" uid="uid://tys1v21mapgj" path="res://Scenes/Entity/Maps/floors.tscn" id="2_1e3gs"]
 [ext_resource type="Shader" uid="uid://b8444ydfjaa5u" path="res://Scenes/Prototype/prototype.tres" id="2_h5wrs"]
@@ -10,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bl30r4nnma1th" path="res://Assets/Sprites/Debit/Items/Land-furnitures/Tapis.png" id="7_ax6of"]
 [ext_resource type="PackedScene" uid="uid://cikd68ww2ohng" path="res://Scenes/Entity/Entity/Doc.tscn" id="7_p1gw4"]
 [ext_resource type="AudioStream" uid="uid://c2mc8bjtvn0h8" path="res://Assets/Sounds/Small City Lights.mp3" id="10_dbpph"]
+[ext_resource type="Script" uid="uid://3hanuajskspr" path="res://Scripts/GameLogic/start_game.gd" id="12_cw0h6"]
+[ext_resource type="AudioStream" uid="uid://bwqtt7jdko1p" path="res://Assets/Sounds/11L-Sound_of_garage_gate.ogg" id="13_u0pxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee7cb"]
 bg_color = Color(0.0666667, 0.192157, 0.380392, 1)
@@ -23,11 +26,6 @@ shader = ExtResource("2_h5wrs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ax6of"]
 shader = ExtResource("5_tcv2a")
 
-[sub_resource type="Gradient" id="Gradient_tcv2a"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ax6of"]
-gradient = SubResource("Gradient_tcv2a")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax6of"]
 size = Vector2(51, 664)
 
@@ -37,7 +35,17 @@ size = Vector2(611.045, 37.0139)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo36x"]
 size = Vector2(800, 49)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0pxh"]
+radius = 74.0
+height = 404.0
+
+[sub_resource type="Gradient" id="Gradient_tcv2a"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ax6of"]
+gradient = SubResource("Gradient_tcv2a")
+
 [node name="Prototype" type="Node2D"]
+script = ExtResource("1_lo36x")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
@@ -87,14 +95,6 @@ scale = Vector2(5, 5)
 z_index = 4
 position = Vector2(232, 395)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-z_index = 5
-position = Vector2(537, 311)
-color = Color(0.0550911, 0.386725, 0.779186, 1)
-texture = SubResource("GradientTexture2D_ax6of")
-texture_scale = 10.0
-metadata/_edit_lock_ = true
-
 [node name="WorldBoundaries" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WorldBoundaries"]
@@ -106,7 +106,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D"]
 z_index = 5
 position = Vector2(10.5, -173)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ax6of")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="WorldBoundaries"]
@@ -138,3 +137,39 @@ stream = ExtResource("10_dbpph")
 volume_db = -20.0
 autoplay = true
 attenuation = 3.03143
+
+[node name="StartGame2" type="Node2D" parent="."]
+visible = false
+script = ExtResource("12_cw0h6")
+
+[node name="StartGame" type="Area2D" parent="StartGame2"]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartGame2/StartGame"]
+position = Vector2(796, 434)
+shape = SubResource("CapsuleShape2D_u0pxh")
+
+[node name="PointLight2D" type="PointLight2D" parent="StartGame2"]
+z_index = 5
+position = Vector2(537, 311)
+color = Color(0.0550911, 0.386725, 0.779186, 1)
+texture = SubResource("GradientTexture2D_ax6of")
+texture_scale = 10.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="StartGame2"]
+visible = false
+offset_left = 627.0
+offset_top = 318.0
+offset_right = 773.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 20
+text = "Press F to Start
+"
+
+[node name="Open" type="AudioStreamPlayer" parent="StartGame2"]
+stream = ExtResource("13_u0pxh")
+volume_db = -10.0
+
+[connection signal="body_entered" from="StartGame2/StartGame" to="StartGame2" method="_on_start_game_body_entered"]
+[connection signal="body_exited" from="StartGame2/StartGame" to="StartGame2" method="_on_start_game_body_exited"]

@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dlohtymsaiibi"]
+
+[ext_resource type="Texture2D" uid="uid://lgppgrt8nibd" path="res://Assets/Sprites/Debit/UI/frame.png" id="1_k1log"]
+[ext_resource type="Texture2D" uid="uid://desn827gjtuq0" path="res://Assets/Sprites/Debit/UI/Buttons1.png" id="1_rad25"]
+[ext_resource type="Texture2D" uid="uid://b2t8v81ithvqf" path="res://Assets/Sprites/Debit/UI/Buttons2.png" id="2_xslvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rad25"]
+atlas = ExtResource("1_rad25")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xslvk"]
+texture = SubResource("AtlasTexture_rad25")
+texture_margin_left = 22.0
+texture_margin_top = 19.0
+texture_margin_right = 24.0
+texture_margin_bottom = 18.0
+region_rect = Rect2(0, 0, 154, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pprs"]
+atlas = ExtResource("1_rad25")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el6bs"]
+texture = SubResource("AtlasTexture_5pprs")
+texture_margin_left = 19.0
+texture_margin_top = 18.0
+texture_margin_right = 20.0
+texture_margin_bottom = 17.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cssb1"]
+atlas = ExtResource("2_xslvk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_islpm"]
+texture = SubResource("AtlasTexture_cssb1")
+texture_margin_left = 21.0
+texture_margin_top = 19.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+region_rect = Rect2(0, 0, 154, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdxs"]
+atlas = ExtResource("1_k1log")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rad25"]
+texture = SubResource("AtlasTexture_jhdxs")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_xslvk")
+Button/styles/normal = SubResource("StyleBoxTexture_el6bs")
+Button/styles/pressed = SubResource("StyleBoxTexture_islpm")
+CharacterNameText/base_type = &"RichTextLabel"
+CharacterNameText/font_sizes/normal_font_size = 14
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 12
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Panel/styles/panel = SubResource("StyleBoxTexture_rad25")

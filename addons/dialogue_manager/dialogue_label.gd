@@ -70,15 +70,18 @@ var _is_awaiting_mutation: bool = false
 
 func _process(delta: float) -> void:
 	if self.is_typing:
-		# Type out text
+		$"../Blipoopblip".play()# Type out text
 		if visible_ratio < 1:
 			# See if we are waiting
 			if _waiting_seconds > 0:
+				$"../Blipoopblip".stop()
 				_waiting_seconds = _waiting_seconds - delta
 			# If we are no longer waiting then keep typing
 			if _waiting_seconds <= 0:
+				$"../Blipoopblip".play()
 				_type_next(delta, _waiting_seconds)
 		else:
+			$"../Blipoopblip".stop()
 			# Make sure any mutations at the end of the line get run
 			_mutate_inline_mutations(get_total_character_count())
 			self.is_typing = false

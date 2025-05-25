@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://y5t8jgb4kww6"]
+
+[ext_resource type="Texture2D" uid="uid://bwsqj2lr0sojw" path="res://Assets/Sprites/Debit/UI/Title.png" id="1_4pqbp"]
+[ext_resource type="Script" uid="uid://b81faj555pall" path="res://Scripts/LogicUI/main_menu.gd" id="1_k33u3"]
+[ext_resource type="Texture2D" uid="uid://dpgmc86jjh3s" path="res://Assets/Sprites/Debit/UI/ButtonsStart1.png" id="1_u7lva"]
+[ext_resource type="Texture2D" uid="uid://cbcye0074gf61" path="res://Assets/Sprites/Debit/UI/ButtonsStart2.png" id="2_mrfpk"]
+[ext_resource type="Texture2D" uid="uid://b7uoh4pvksj62" path="res://Assets/Sprites/Debit/UI/ButtonsQuit1.png" id="3_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://cx8puetdiuiyf" path="res://Assets/Sprites/Debit/UI/ButtonsQuit2.png" id="4_gih0s"]
+[ext_resource type="Texture2D" uid="uid://ckd0sjvigrruy" path="res://Assets/Sprites/Debit/Debit chocbar.png" id="5_mrfpk"]
+[ext_resource type="AudioStream" uid="uid://ccwr62blcx058" path="res://Assets/Sounds/Electric Pulse.mp3" id="7_gih0s"]
+[ext_resource type="Texture2D" uid="uid://dyxwd74txcjvs" path="res://Assets/Sprites/Debit/Couverture & Background/Background 800x600.png" id="8_wqme5"]
+[ext_resource type="AudioStream" uid="uid://bh5jnw3t3mcwn" path="res://Assets/Sounds/11L-Sound_of_a_high_pitc-1748108015087_2.ogg" id="9_lrjdf"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k33u3")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_4pqbp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_u7lva")
+texture_pressed = ExtResource("2_mrfpk")
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("3_4pqbp")
+texture_pressed = ExtResource("4_gih0s")
+
+[node name="Debit" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -348.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_mrfpk")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -15
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_wqme5")
+
+[node name="BgOST" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gih0s")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lrjdf")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

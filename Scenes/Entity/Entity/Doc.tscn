@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cikd68ww2ohng"]
+[gd_scene load_steps=7 format=3 uid="uid://cikd68ww2ohng"]
 
+[ext_resource type="Script" uid="uid://bxbd1p5ydquej" path="res://Scripts/EnitityLogic/doc.gd" id="1_33l0g"]
 [ext_resource type="Texture2D" uid="uid://pw8wx4ekyv4y" path="res://Assets/Sprites/Debit/Entity/Doc1.png" id="1_e8bvm"]
 [ext_resource type="Texture2D" uid="uid://iycwpfjtg7tu" path="res://Assets/Sprites/Debit/Entity/Doc2.png" id="2_33l0g"]
 [ext_resource type="Texture2D" uid="uid://cw7mguqivya84" path="res://Assets/Sprites/Debit/Entity/Doc3.png" id="3_3bygq"]
@@ -21,11 +22,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bygq"]
+radius = 180.4
+
 [node name="Doc" type="Node2D"]
 z_index = 100
+script = ExtResource("1_33l0g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_epjfg")
 autoplay = "default"
 speed_scale = 0.5
+
+[node name="InteractibleArea" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractibleArea"]
+shape = SubResource("CircleShape2D_3bygq")
+
+[node name="InteractibleLabel" type="Label" parent="."]
+visible = false
+z_index = 15
+offset_left = 48.0
+offset_top = -98.0
+offset_right = 190.0
+offset_bottom = -75.0
+theme_override_font_sizes/font_size = 20
+text = "F to interact"
+
+[connection signal="body_entered" from="InteractibleArea" to="." method="_on_interactible_area_body_entered"]
+[connection signal="body_exited" from="InteractibleArea" to="." method="_on_interactible_area_body_exited"]
