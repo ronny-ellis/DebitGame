@@ -18,7 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		start_game()
 
 func start_game():
-	print("Start Game")
+	get_tree().change_scene_to_file("res://Scenes/Gameplay/game.tscn")
 
 func activate_me():
 	self.visible = true

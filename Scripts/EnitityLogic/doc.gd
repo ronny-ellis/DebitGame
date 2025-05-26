@@ -3,7 +3,7 @@ extends Node2D
 signal start
 
 @onready var label = $InteractibleLabel
-var balloon_scene = preload("res://Scenes/UI/game_dialogue_balloon.tscn")
+var balloon_scene = preload("res://Util/Dialogues/balloon.tscn")
 var can_interact:bool = false
 var already_talked:bool = true
 

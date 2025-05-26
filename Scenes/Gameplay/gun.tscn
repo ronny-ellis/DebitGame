@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnevl1dpgnnyp"]
+
+[ext_resource type="Script" uid="uid://cj2882mfmd7rr" path="res://Scripts/EnitityLogic/Player/script/gun.gd" id="1_h5mb1"]
+[ext_resource type="Texture2D" uid="uid://daxj6utxxpy61" path="res://Assets/Sprites/Debit/Items/Keyboard.png" id="1_h8bng"]
+[ext_resource type="AudioStream" uid="uid://dix17b4ahoe44" path="res://Assets/Sounds/GunShot.mp3" id="3_guq17"]
+[ext_resource type="AudioStream" uid="uid://d3d87u1le3sey" path="res://Assets/Sounds/ReloadGun.ogg" id="4_o10wm"]
+
+[node name="gun" type="Node2D"]
+script = ExtResource("1_h5mb1")
+
+[node name="Keyboard" type="Sprite2D" parent="."]
+position = Vector2(10, -3)
+texture = ExtResource("1_h8bng")
+
+[node name="Vodybe" type="Marker2D" parent="."]
+position = Vector2(24, -5)
+
+[node name="ShootInterval" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="GunShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_guq17")
+volume_db = -25.0
+
+[node name="ReloadGun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o10wm")
+volume_db = -10.0
+
+[connection signal="timeout" from="ShootInterval" to="." method="_on_shoot_interval_timeout"]
+[connection signal="finished" from="ReloadGun" to="." method="_on_reload_gun_finished"]

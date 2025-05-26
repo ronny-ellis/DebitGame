@@ -1,0 +1,5 @@
+~ start
+Colonel_Nasi: Earth[wait=0.5] Ours! [wait=0.5] Domination! [wait=0.5] Ausrottung! [wait=0.5] Herrschaft! [wait=0.5] Vernichtung!
+Debit: Access denied *beep*[wait=0.3] Earth is not on sale.
+set GameManager.activate_fight()
+=> END!

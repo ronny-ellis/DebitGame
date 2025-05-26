@@ -23,3 +23,7 @@ func _on_quit_button_pressed() -> void:
 func disableButton():
 	$VBoxContainer/StartButton.disabled = true
 	$VBoxContainer/QuitButton.disabled = true
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
