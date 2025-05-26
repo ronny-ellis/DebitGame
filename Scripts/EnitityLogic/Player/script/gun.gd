@@ -12,17 +12,18 @@ func _ready() -> void:
 	reload_audio.autoplay = false
 
 func _process(delta: float) -> void:
-	var  mouse_position=get_global_mouse_position()
-	look_at(mouse_position)
-	
-	rotation_degrees=wrap(rotation_degrees,0,360)
-	if rotation_degrees >90 and rotation_degrees <270 :
-		scale.y = -1
-	else:
-		scale.y =1
-	
-	if Input.is_action_just_pressed("fire") && can_shoot and not reloading:
-		shoot()
+	if GameManager.action_fight == true:
+		var  mouse_position=get_global_mouse_position()
+		look_at(mouse_position)
+		
+		rotation_degrees=wrap(rotation_degrees,0,360)
+		if rotation_degrees >90 and rotation_degrees <270 :
+			scale.y = -1
+		else:
+			scale.y =1
+		
+		if Input.is_action_just_pressed("fire") && can_shoot and not reloading:
+			shoot()
 		
 	
 func _on_shoot_interval_timeout() -> void:
