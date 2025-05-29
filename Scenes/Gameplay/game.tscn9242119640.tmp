@@ -56,28 +56,43 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
+position = Vector2(-1, 10)
 script = ExtResource("1_k43tg")
 player = NodePath("player")
 
 [node name="player" parent="." instance=ExtResource("1_5kiuu")]
 z_index = 1
-position = Vector2(191, 340)
-scale = Vector2(2, 2)
-metadata/_edit_group_ = true
+position = Vector2(-86, 71)
+
+[node name="GameManager" type="Node" parent="player"]
+script = ExtResource("8_ll5lq")
+
+[node name="vagueNumber" type="Label" parent="player/GameManager"]
+offset_left = 47.0
+offset_top = -101.0
+offset_right = 90.0
+offset_bottom = -78.0
+text = "Score"
+
+[node name="AlienKilled" type="Label" parent="player/GameManager"]
+offset_left = -193.0
+offset_top = -101.0
+offset_right = -151.0
+offset_bottom = -78.0
+text = "score"
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(104, -19.5)
+position = Vector2(83, -9)
 scale = Vector2(-2.65665, -23.7029)
-limit_left = 0
-limit_top = 0
-limit_right = 800
-limit_bottom = 600
+zoom = Vector2(2, 2)
+limit_left = -200
+limit_top = -1000
+limit_right = 200
+limit_bottom = 200
 position_smoothing_enabled = true
 
 [node name="decor" type="StaticBody2D" parent="."]
-position = Vector2(321, 113)
-scale = Vector2(2, 2)
-metadata/_edit_group_ = true
+position = Vector2(-27, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="decor"]
 z_index = 1
@@ -86,75 +101,37 @@ rotation = -0.00751866
 shape = SubResource("WorldBoundaryShape2D_5kiuu")
 
 [node name="alienship" parent="." instance=ExtResource("2_dbls1")]
-position = Vector2(665, 130)
-scale = Vector2(2, 2)
+position = Vector2(139, -45)
 min_x = -200.0
-metadata/_edit_group_ = true
+max_x = 200.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="alienship"]
+[node name="Battle-scene" type="Sprite2D" parent="."]
+position = Vector2(8.5, 28)
+scale = Vector2(0.63375, 0.613333)
+texture = ExtResource("3_33cqm")
 
-[node name="GameManager" type="Node" parent="alienship/CanvasLayer"]
-script = ExtResource("8_ll5lq")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="alienship/CanvasLayer/GameManager"]
-visible = false
-custom_minimum_size = Vector2(100, 10)
-offset_left = 27.0
-offset_top = 72.0
-offset_right = 127.0
-offset_bottom = 112.0
-
-[node name="vagueNumber" type="Label" parent="alienship/CanvasLayer/GameManager/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "Score"
-
-[node name="AlienKilled" type="Label" parent="alienship/CanvasLayer/GameManager/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "score"
-
-[node name="BattleCry" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_crepm")
-volume_db = -20.0
-parameters/looping = true
-
-[node name="ProgressBar" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="ProgressBar" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("player")]
 visible = false
 z_index = 1
-offset_left = 112.0
-offset_top = 18.0
-offset_right = 176.0
-offset_bottom = 58.0
-scale = Vector2(2, 2)
+offset_left = -141.0
+offset_top = -82.0
+offset_right = -77.0
+offset_bottom = -42.0
 value = 100.0
 texture_under = ExtResource("6_fm2t3")
 texture_progress = ExtResource("7_v1d20")
 tint_progress = Color(0.417284, 0.71788, 0, 1)
 script = ExtResource("6_treb0")
-player = NodePath("../../player")
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
+player = NodePath("../player")
 
-[node name="healthBar" type="AnimatedSprite2D" parent="ProgressBar/TextureProgressBar"]
+[node name="healthBar" type="AnimatedSprite2D" parent="TextureProgressBar"]
 position = Vector2(-29, 20)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ym5sv")
 animation = &"critical"
 autoplay = "full"
-metadata/_edit_group_ = true
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -5
-follow_viewport_enabled = true
-
-[node name="Background" type="TextureRect" parent="Background"]
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("3_33cqm")
-expand_mode = 2
-
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[node name="BattleCry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_crepm")
+volume_db = -20.0
+parameters/looping = true

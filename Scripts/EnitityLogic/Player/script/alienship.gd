@@ -3,18 +3,19 @@ extends Node2D
 @onready var marker: Marker2D = $Marker2D
 @export var limit = 5
 @export var alien_killed=0
-@export var min_x := 100.0
-@export var max_x := 1000.0
+@export var min_x := 400.0
+@export var max_x := 700.0
 const ENEMY= preload("res://Scenes/Gameplay/enemy.tscn")
 @onready var alien_timer: Timer = $AlienTimer
-@onready var vague_number: Label = $"../player/GameManager/vagueNumber"
-@onready var alien_kill: Label = $"../player/GameManager/AlienKilled"
+@onready var vague_number: Label = $CanvasLayer/GameManager/HBoxContainer/vagueNumber
+@onready var alien_kill: Label = $CanvasLayer/GameManager/HBoxContainer/AlienKilled
 @onready var current_position = self.global_position
 
 var count = 0
 var vague = 0
 var is_moving: bool = false
 var target_position: Vector2
+var wait_time : float = 1.0
 
 var move_speed = 100.0 # Pixels per second
 var rng = RandomNumberGenerator.new()
@@ -46,6 +47,9 @@ func _process(delta: float) -> void:
 			alien_timer.wait_time = 2.0
 			alien_timer.paused = false
 			count = 0 # Reset spawn count for the new wave
+			
+			if alien_killed % 10 == 0 and alien_killed != 0:
+				wait_time = max(0.2, wait_time - 0.1)
 		
 		# Smooth movement toward target_position
 		if global_position.distance_to(target_position) > 1.0:
@@ -64,7 +68,7 @@ func _on_timer_timeout() -> void:
 
 		if count==limit:
 			alien_timer.paused=true
-		alien_timer.wait_time=1.0
+		alien_timer.wait_time= wait_time
 
 func shuffle():
 	var num_rand = RandomNumberGenerator.new()

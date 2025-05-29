@@ -1,26 +1,22 @@
+class_name Player
 extends CharacterBody2D
 
+signal hurt
+signal death
 
-const SPEED = 100.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
+var health = 100
+var max_health = 100
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-var health=100
-@onready var game: Node2D = $".."
-@onready var texture_progress: TextureProgressBar = $"../TextureProgressBar"
-@onready var health_bar: AnimatedSprite2D = $"../TextureProgressBar/healthBar"
-
 
 func _physics_process(delta: float) -> void:
 	if GameManager.action_fight == true:
-		if health>50:
-			health_bar.play("full")
-		if health<=50:
-			health_bar.play("mid")
 		if health<=0:
-			health_bar.play("death")
 			animated_sprite.play("death")
-			if animated_sprite.animation_finished:
-				game.get_tree().change_scene_to_file("res://Scenes/UI/Game_over.tscn")
+			$gun.visible = false
+			await animated_sprite.animation_finished
+			death.emit()
 			
 			#game.get_tree().paused=true
 		if not is_on_floor():
@@ -64,3 +60,5 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
  
+func hurtByEnnemy(damage : int):
+	hurt.emit(5)

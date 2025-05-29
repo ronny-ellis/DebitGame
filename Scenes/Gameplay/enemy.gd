@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal dying
+
 const SPEED = 20
 var move=true
 const bullet_enemy=preload("res://Scenes/Gameplay/bullet_enemy.tscn")
@@ -53,7 +55,7 @@ func _on_move_limite_body_exited(body: Node2D) -> void:
 	
 func enemy_fire():
 	var bullet_instance=bullet_enemy.instantiate()
-	get_tree().root.add_child(bullet_instance)
+	add_child(bullet_instance)
 	bullet_instance.global_position=cible.global_position
 	bullet_instance.rotation=cible.rotation
 	$Timer.wait_time = shuffle()
@@ -65,3 +67,6 @@ func shuffle():
 	var rand_num = RandomNumberGenerator.new()
 	return rand_num.randf_range(1.0, 1.5)
 	
+
+func _on_tree_exited() -> void:
+	dying.emit()

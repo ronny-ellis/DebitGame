@@ -3,12 +3,14 @@ extends Node2D
 @onready var vodybe: Marker2D = $Vodybe
 @onready var shooterInterval = $ShootInterval
 @onready var reload_audio = $ReloadGun
+@onready var player : Player = get_parent()
 const  BULLET = preload("res://Scenes/Gameplay/bullet.tscn")
 
 var can_shoot: bool = true
 var reloading: bool = false
 
 func _ready() -> void:
+	player.death.connect(cannotShoot)
 	reload_audio.autoplay = false
 
 func _process(delta: float) -> void:
@@ -47,3 +49,6 @@ func _on_reload_gun_finished() -> void:
 	#reload_audio.stop()
 	can_shoot = true
 	reloading = false
+
+func cannotShoot():
+	can_shoot = false

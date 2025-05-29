@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var animationplayer = $AnimationPlayer
+@onready var animationplayer = $Control/CanvasLayer/AnimationPlayer
 
 func _ready() -> void:
 	animationplayer.play("Fade_in")

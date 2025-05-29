@@ -171,5 +171,8 @@ text = "Press F to Start
 stream = ExtResource("13_u0pxh")
 volume_db = -10.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(399, 304)
+
 [connection signal="body_entered" from="StartGame2/StartGame" to="StartGame2" method="_on_start_game_body_entered"]
 [connection signal="body_exited" from="StartGame2/StartGame" to="StartGame2" method="_on_start_game_body_exited"]

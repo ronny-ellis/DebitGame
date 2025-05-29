@@ -58,7 +58,8 @@ z_index = 1
 script = ExtResource("1_kqmod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(-1, -4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jntje")
 animation = &"walk"
 autoplay = "idle"
@@ -66,6 +67,7 @@ frame_progress = 0.151162
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_ysr33")
 debug_color = Color(0.0800972, 0.557667, 0.885288, 0.42)
 
@@ -82,8 +84,9 @@ position = Vector2(-3, 12)
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="area_entered" from="move_limite" to="." method="_on_area_2d_area_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="area_entered" from="move_limite" to="." method="_on_move_limite_area_entered"]
+[connection signal="area_entered" from="move_limite" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="move_limite" to="." method="_on_move_limite_body_entered"]
 [connection signal="body_exited" from="move_limite" to="." method="_on_move_limite_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

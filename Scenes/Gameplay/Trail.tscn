@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bemfrl3mdctmd"]
+
+[ext_resource type="Script" uid="uid://cn8sdod4yb28" path="res://Scripts/EnitityLogic/trail.gd" id="1_8mvac"]
+
+[sub_resource type="Curve" id="Curve_hun42"]
+_data = [Vector2(0.00199203, 0.285798), 0.0, 0.0, 0, 0, Vector2(0.930279, 0.680888), 1.76037, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8mvac"]
+colors = PackedColorArray(0.137255, 0.486275, 0.733333, 0, 0.137255, 0.486275, 0.733333, 0.580392)
+
+[node name="Trail" type="Line2D"]
+top_level = true
+points = PackedVector2Array(-6, 0, 10, 0)
+width = 16.0
+width_curve = SubResource("Curve_hun42")
+default_color = Color(0.136122, 0.48681, 0.735271, 1)
+gradient = SubResource("Gradient_8mvac")
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_8mvac")
