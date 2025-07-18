@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="DebitGame"
+config/name="D-Bit"
 run/main_scene="res://Scenes/UI/intro.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ouxnb76wioom"
+config/windows_native_icon="res://Assets/Debits1.ico"
 
 [autoload]
 
@@ -28,7 +29,8 @@ runtime/balloon_path="res://Util/Dialogues/balloon.tscn"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/initial_position_type=0
+window/size/initial_position_type=4
+window/size/resizable=false
 
 [editor_plugins]
 
