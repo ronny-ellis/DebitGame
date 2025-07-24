@@ -7,7 +7,6 @@ var move=true
 const bullet_enemy=preload("res://Scenes/Gameplay/bullet_enemy.tscn")
 
 @onready var player =get_node("/root/Game/player")
-@onready var bullet =get_node("/root/Game/bullet")
 @onready var move_limite: Area2D = $move_limite
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
