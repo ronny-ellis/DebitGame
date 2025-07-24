@@ -12,7 +12,7 @@ func _ready() -> void:
 	balloon.start(load("res://Util/Dialogues/nasi_dialogues.dialogue"), "start")
 	
 
-func _process(delta: float) -> void:
+func _process(_delta) -> void:
 	if GameManager.action_fight == true && audio.playing == false:
 		audio.play()
 

@@ -48,7 +48,7 @@ func _on_move_limite_body_entered(body: Node2D) -> void:
 		velocity.x=0
 		move=false
 
-func _on_move_limite_body_exited(body: Node2D) -> void:
+func _on_move_limite_body_exited(_body) -> void:
 	move=true
 	
 func enemy_fire():

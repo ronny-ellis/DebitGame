@@ -6,7 +6,7 @@ var health_state = 1
 func _ready() -> void:
 	player.hurt.connect(hurtBySomething)
 
-func _process(delta: float) -> void:
+func _process(_delta) -> void:
 	if GameManager.action_fight == true:
 		self.visible = true
 		if player.health>50:
@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 		if player.health<=0:
 			$healthBar.play("death")
 
-func hurtBySomething(damage : int) -> void:
+func hurtBySomething(_damage) -> void:
 	value = player.health * 105 / player.max_health
