@@ -2,6 +2,7 @@ extends Area2D
 
 const SPEED = 500
 @export var damage : int = 5
+@export var bullet_enemy_scene: PackedScene
 var ennemy : Node
 
 # Called when the node enters the scene tree for the first time.

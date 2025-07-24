@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 			$gun.visible = false
 			await animated_sprite.animation_finished
 			death.emit()
-			
+			return 
 			#game.get_tree().paused=true
 		if not is_on_floor():
 			velocity += get_gravity() * delta
