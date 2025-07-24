@@ -16,10 +16,9 @@ var interval_shoot : float = 1.0
 
 
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	if get_node("/root/Game/player") && player.health > 0:
 		var direction = global_position.direction_to(player.global_position)
-		var player_in_range = move_limite.get_overlapping_bodies()
 		cible.look_at(player.global_position)
 			
 		if not is_on_floor():
