@@ -4,7 +4,7 @@ extends TextureProgressBar
 var health_state = 1
 
 func _ready() -> void:
-	player.hurt.connect(hurtBySomething)
+	pass
 
 func _process(_delta) -> void:
 	if GameManager.action_fight == true:
@@ -20,6 +20,3 @@ func _process(_delta) -> void:
 			$healthBar.play("critical")
 		if player.health<=0:
 			$healthBar.play("death")
-
-func hurtBySomething(_damage) -> void:
-	value = player.health * 105 / player.max_health
