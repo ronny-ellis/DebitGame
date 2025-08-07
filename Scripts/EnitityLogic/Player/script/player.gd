@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		if health<=0:
 			animated_sprite.play("death")
 			$gun.visible = false
-			save_score(alienship.alien_killed,13)
+			#save_score(alienship.alien_killed,13)
 			await animated_sprite.animation_finished
 			death.emit()
 			return 
@@ -64,25 +64,3 @@ func _physics_process(delta: float) -> void:
  
 func hurtByEnnemy(_damage):
 	hurt.emit(5)
-
-func save_score(alien_killed: int, vague: int) -> void:
-	var file_path = "user://game_data.dat"
-	
-	# Vérifie si le fichier existe
-	if not FileAccess.file_exists(file_path):
-		# Fichier inexistant, on crée et on écrit
-		var file = FileAccess.open(file_path, FileAccess.WRITE)
-		file.store_string("%d:%d" % [alien_killed, vague])
-		file.close()
-	else:
-		# Le fichier existe, on peut lire ou afficher les scores précédents
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		var content = file.get_as_text()
-		file.close()
-		
-		print("Score existant : ", content)
-
-		# On peut aussi écraser ou ajouter si nécessaire
-		var file_write = FileAccess.open(file_path, FileAccess.WRITE)
-		file_write.store_string("%d:%d" % [alien_killed, vague])
-		file_write.close()

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Ennemy
 
 signal dying
 
@@ -67,4 +68,5 @@ func shuffle():
 	
 
 func _on_tree_exited() -> void:
+	GameGlobal.score_up()
 	dying.emit()
