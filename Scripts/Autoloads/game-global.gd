@@ -31,3 +31,12 @@ func save_score() -> void:
 		var file_write = FileAccess.open(file_path, FileAccess.WRITE)
 		file_write.store_string("alien_killed: %d, vagues: %d" % [score, last_vagues])
 		file_write.close()
+		
+func _get_score():
+	return score
+func _get_vagues():
+	return last_vagues
+	
+func reset_game():
+	score = 0
+	last_vagues = 0
