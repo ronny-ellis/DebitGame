@@ -68,5 +68,4 @@ func shuffle():
 	
 
 func _on_tree_exited() -> void:
-	GameGlobal.score_up()
 	dying.emit()

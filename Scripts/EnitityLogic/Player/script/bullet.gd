@@ -18,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "decor":
 		queue_free()
 	else:
+		GameGlobal.score_up()
 		alienship.alien_killed += 1
 		body.queue_free()
 		print(alienship.alien_killed)

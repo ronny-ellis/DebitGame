@@ -22,7 +22,7 @@ func save_score() -> void:
 	else:
 		# Le fichier existe, on peut lire ou afficher les scores précédents
 		var file = FileAccess.open(file_path, FileAccess.READ)
-		var content = file.get_as_text()
+		#var content = file.get_as_text()
 		file.close()
 		
 		#print("Score existant : ", content)
