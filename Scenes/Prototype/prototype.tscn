@@ -106,7 +106,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/StaticBody2D"]
 z_index = 5
 position = Vector2(10.5, -173)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ax6of")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="WorldBoundaries"]
