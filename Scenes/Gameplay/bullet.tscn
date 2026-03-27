@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgjbep4qx8066"]
+[gd_scene format=3 uid="uid://cgjbep4qx8066"]
 
 [ext_resource type="Script" uid="uid://gio2yvx5h1tq" path="res://Scripts/EnitityLogic/Player/script/bullet.gd" id="1_xw300"]
 [ext_resource type="Texture2D" uid="uid://f8v7wd6xpdan" path="res://Assets/Sprites/Debit/Items/RoundBullet1.png" id="2_hmo2u"]
@@ -6,20 +6,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xw300"]
 size = Vector2(12, 11)
 
-[node name="bullet" type="Area2D"]
+[node name="bullet" type="Area2D" unique_id=1581503618]
 scale = Vector2(0.23973106, 0.23973106)
 script = ExtResource("1_xw300")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1835881626]
 z_index = 1
 shape = SubResource("RectangleShape2D_xw300")
 
-[node name="AmmoLetters1" type="Sprite2D" parent="."]
+[node name="AmmoLetters1" type="Sprite2D" parent="." unique_id=626460787]
 z_index = 1
 rotation = 1.5708
 texture = ExtResource("2_hmo2u")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1285485034]
 wait_time = 0.5
 autostart = true
 

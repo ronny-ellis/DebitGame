@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dguvb3qh2877f"]
+[gd_scene format=3 uid="uid://dguvb3qh2877f"]
 
 [ext_resource type="Script" uid="uid://rdkdigmyx4bp" path="res://Scenes/Gameplay/enemy.gd" id="1_kqmod"]
 [ext_resource type="Texture2D" uid="uid://b7xew4vsdprnk" path="res://Assets/Sprites/Debit/Ennemies/Alien1.png" id="1_vgurf"]
@@ -53,11 +53,11 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yvcfn"]
 radius = 143.136
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" unique_id=1057244818]
 z_index = 1
 script = ExtResource("1_kqmod")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=33615959]
 position = Vector2(-1, -4)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jntje")
@@ -65,28 +65,28 @@ animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.151162
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2019006345]
 position = Vector2(-1, 12)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_ysr33")
 debug_color = Color(0.0800972, 0.557667, 0.885288, 0.42)
 
-[node name="move_limite" type="Area2D" parent="."]
+[node name="move_limite" type="Area2D" parent="." unique_id=939333651]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_limite"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_limite" unique_id=2054348059]
 position = Vector2(-2, 12)
 shape = SubResource("CircleShape2D_yvcfn")
 debug_color = Color(0.958509, 0.173871, 0.281118, 0.42)
 
-[node name="cible" type="Marker2D" parent="."]
+[node name="cible" type="Marker2D" parent="." unique_id=2048316300]
 position = Vector2(-3, 12)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=337134991]
 autostart = true
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="area_entered" from="move_limite" to="." method="_on_move_limite_area_entered"]
 [connection signal="area_entered" from="move_limite" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="move_limite" to="." method="_on_move_limite_area_entered"]
 [connection signal="body_entered" from="move_limite" to="." method="_on_move_limite_body_entered"]
 [connection signal="body_exited" from="move_limite" to="." method="_on_move_limite_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
