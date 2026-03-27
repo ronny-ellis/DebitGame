@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bd3opbxhc52mf"
+path="res://.godot/imported/nasi_dialogues.dialogue-8b7d80968056f4d694b085c7a2e75b9e.tres"
+
+[deps]
+
+source_file="res://Util/Dialogues/nasi_dialogues.dialogue"
+dest_files=["res://.godot/imported/nasi_dialogues.dialogue-8b7d80968056f4d694b085c7a2e75b9e.tres"]
+
+[params]
+
+defaults=true

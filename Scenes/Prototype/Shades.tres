@@ -1,0 +1,56 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://ie1ksgfthj3q"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_es3yp"]
+constant = Color(0.162066, 0.162066, 0.162066, 0.913725)
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_patkc"]
+constant = Color(0.0313726, 0.0313726, 0.0313726, 1)
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_e1af6"]
+output_port_for_preview = 0
+constant = Color(0.622881, 0.622881, 0.622881, 1)
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void vertex() {
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(0.622881, 0.622881, 0.622881, 1.000000);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+
+
+}
+
+void light() {
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(0.162066, 0.162066, 0.162066, 0.913725);
+
+
+// ColorConstant:3
+	vec4 n_out3p0 = vec4(0.031373, 0.031373, 0.031373, 1.000000);
+
+
+// Output:0
+	LIGHT.rgb = vec3(n_out2p0.xyz);
+	SHADOW_MODULATE.rgb = vec3(n_out3p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorConstant_e1af6")
+nodes/vertex/2/position = Vector2(160, 200)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 2)
+nodes/light/2/node = SubResource("VisualShaderNodeColorConstant_es3yp")
+nodes/light/2/position = Vector2(220, 60)
+nodes/light/3/node = SubResource("VisualShaderNodeColorConstant_patkc")
+nodes/light/3/position = Vector2(220, 260)
+nodes/light/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 2)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5rfmda0wn611"
+path="res://.godot/imported/Battle Cry.mp3-79ac7fa8ead28664d6ac18d9764ea9b9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Battle Cry.mp3"
+dest_files=["res://.godot/imported/Battle Cry.mp3-79ac7fa8ead28664d6ac18d9764ea9b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

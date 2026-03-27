@@ -1,0 +1,25 @@
+~ start
+Doc: [wave]Debit[/wave][wait=1] you're finally working, my little robot!
+Debit: Start-up operational and ready to work.[wait=0.2].[wait=0.2].[wait=2] *beep*
+Doc: Great, I need you for a very important mission.
+- How can I assist you ?
+	Debit: How can I help you ?
+	=> Resume_Mission
+- Bip..?
+	Debit: ...Bop?
+	Doc: Oh [wait=0.2] right.. you just started
+	=> question
+=> END
+
+~ Resume_Mission
+Doc: Debit, your mission is to save us from the Aliens known as the Nasi. They want to ruin everything. But you, you're going to stop them!
+Doc: *Taking something*[wait=0.5]
+Doc: I've made you a weapon with the remaining parts
+Debit: *beep*[wait=0.3] *processing*[wait=0.3]. Mission registered...[wait=0.2] Begin mission
+Doc: Now GO!
+set GameManager.activate_game()
+=> END!
+
+~ question
+Doc: Your name is D-81T, for humans Debit and I made you for a very important mission, to protect our neighborhood
+=> Resume_Mission
